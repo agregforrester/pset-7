@@ -1,6 +1,9 @@
+import java.util.Scanner;
+
 public class ProblemSet7 {
     public static void main(String[] args) {
-
+        System.out.println(surroundMe("abc", "123"));
+        System.out.println(endsMeet("abcdefg", 2));
     }
 
     /*
@@ -9,8 +12,26 @@ public class ProblemSet7 {
      * Given two strings, return a new string built by surrounding in with the first
      * and last two characters of out.
      */
-    public String surroundMe(String in, String out) {
 
+    // Retrieve String in and String out
+    // Divide String out in half and make it separate substrings
+    // Concatenate all the strings together
+    public static String surroundMe(String in, String out) {
+        String first;
+        String second;
+        String result;
+
+        if (in == null || out == null || out.length() < 4) {
+            result = in;
+            return result;
+        } else {
+            first = out.substring(0, out.length() / 2);
+            second = out.substring(out.length() / 2);
+            result = first.concat(in);
+            result = result.concat(second);
+
+            return result;
+        }
     }
 
     /*
@@ -19,8 +40,27 @@ public class ProblemSet7 {
      * Given a string and an integer, return a new string that represents the first
      * and last n characters of text (overlapping, as needed).
      */
-    public String endsMeet(String text, int n) {
+    public static String endsMeet(String text, int n) {
+        String first;
+        String second;
+        String result;
 
+        if (in == null || out == null || out.length() < 4) {
+            result = in;
+            return result;
+        } else {
+            first = out.substring(0, out.length() / 2);
+            second = out.substring(out.length() / 2);
+            result = first.concat(in);
+            result = result.concat(second);
+
+            return result;
+        }
+
+
+
+
+        return "";
     }
 
     /*
@@ -29,7 +69,7 @@ public class ProblemSet7 {
      * Given a string, return a new string using the middle three characters of text.
      */
     public String middleMan(String text) {
-
+        return "";
     }
 
     /*
@@ -39,7 +79,7 @@ public class ProblemSet7 {
      * three characters of text.
      */
     public boolean isCentered(String text, String target) {
-
+        return true;
     }
 
     /*
@@ -48,7 +88,7 @@ public class ProblemSet7 {
      * Given a string and a character, compute the number of words that end in suffix.
      */
     public int countMe(String text, char suffix) {
-
+        return 0;
     }
 
     /*
@@ -57,7 +97,7 @@ public class ProblemSet7 {
      * Given a string, compute the number of triplets in text.
      */
     public int triplets(String text) {
-
+        return 0;
     }
 
     /*
@@ -66,7 +106,7 @@ public class ProblemSet7 {
      * Given a string, compute the sum of the digits in text.
      */
     public long addMe(String text) {
-
+        return 0;
     }
 
     /*
@@ -75,7 +115,7 @@ public class ProblemSet7 {
      * Given a string, compute the length of the longest sequence.
      */
     public long sequence(String text) {
-
+        return 0;
     }
 
     /*
@@ -85,15 +125,17 @@ public class ProblemSet7 {
      * characters of a and b.
      */
     public String intertwine(String a, String b) {
-
+        return "";
     }
-
     /*
      * Exercise 10.
      *
      * Given a string, determine whether or not it is a palindrome.
      */
     public boolean isPalindrome(String text) {
-
+        return true;
     }
+
+
+
 }
