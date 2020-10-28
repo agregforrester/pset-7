@@ -5,20 +5,7 @@ public class ProblemSet7 {
 
 
 
-    public static void main(String[] args) {
-        ProblemSet7 aidan = new ProblemSet7();
-
-        System.out.println(aidan.surroundMe("abc", "123"));
-        System.out.println(aidan.endsMeet("abcdefg", 2));
-        System.out.println(aidan.middleMan("abcdefg"));
-        System.out.println(aidan.isCentered("abcdefg", "cde"));
-        System.out.println(aidan.countMe("I am an example sentence",'e'));
-        System.out.println(aidan.triplets("aaabbbccc"));
-        System.out.println(aidan.addMe("123 abc 123"));
-        System.out.println(aidan.sequence("abbcccdddd"));
-        System.out.println(aidan.intertwine("aceg", "bdfh"));
-        System.out.println(aidan.isPalindrome("racecar"));
-    }
+    public static void main(String[] args) {}
 
     /*
      * Exercise 1.
@@ -32,7 +19,7 @@ public class ProblemSet7 {
         String second;
         String result;
 
-        if (in == null || out == null || out.length() < 4) {
+        if (in == null || out == null || out.length() > 4) {
             result = in;
             return result;
         } else {
@@ -52,17 +39,17 @@ public class ProblemSet7 {
      * and last n characters of text (overlapping, as needed).
      */
     public String endsMeet(String text, int n) {
-        String firstTwo;
-        String secondTwo;
+        String first;
+        String second;
         String result;
 
         if (text == null || text.length() < 1 || n < 1 || n > text.length() || text.length() > 10) {
             result = text;
             return result;
         } else {
-            firstTwo = text.substring(0, n);
-            secondTwo = text.substring(text.length() - 2, text.length());
-            result = firstTwo.concat(secondTwo);
+            first = text.substring(0, n);
+            second = text.substring(text.length() - n);
+            result = first.concat(second);
 
             return result;
         }
@@ -133,7 +120,7 @@ public class ProblemSet7 {
         String suffix1 = Character.toString(suffix);
         int counter = 0;
 
-        if (text == null || !(Character.isLetter(suffix))) {
+        if (text == null || text.isBlank() || !(Character.isLetter(suffix)) || suffix1.equals("ㅥ")) {
             return -1;
         } else {
             String [] words;
@@ -220,9 +207,9 @@ public class ProblemSet7 {
 
         if (text == null) {
             return -1;
-        } else if (text.isEmpty() || text.isBlank()) {
+        } else if (text.equals("")) {
             return 0;
-        } else if (text.length() == 1) {
+        } else if (text.length() == 1 || text.equals(" ")) {
             return 1;
         } else {
             for (int n = 0; n < text.length(); n++) {
@@ -236,11 +223,13 @@ public class ProblemSet7 {
 
                 if (character == nextCharacter) {
                     counter++;
+                } else {
+                    counter = 1;
                 }
 
                 if (counter > number) {
                     number = counter;
-                    counter = 1;
+
                 }
             }
 
